@@ -5,16 +5,10 @@ import { SearchBox } from "./components/search-box/search-box.component.jsx";
 import { CardList } from "./components/card-list/card-list.component.jsx";
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      monsters: [],
-      searchField: "",
-    };
-
-    console.log(this);
-  }
+  state = {
+    monsters: [],
+    searchField: "",
+  };
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -23,10 +17,9 @@ class App extends Component {
       .catch((err) => console.log(err));
   }
 
-  handleChange(e) {
-    console.log(this);
+  handleChange = (e) => {
     this.setState({ searchField: e.target.value });
-  }
+  };
 
   render() {
     const { monsters, searchField } = this.state;
